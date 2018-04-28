@@ -1,6 +1,8 @@
 {
-  "name": "app",
+  "name": "reactbackstage",
   "version": "0.1.0",
+  "description": "React Family Bucket",
+  "author": "pbh",
   "private": true,
   "dependencies": {
     "react": "^16.3.2",
