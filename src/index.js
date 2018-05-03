@@ -6,7 +6,7 @@ import routes from './route/index'
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
-  <div>
+  <div style={{height: '100%'}}>
     {routes}
   </div>, 
   document.getElementById('root')

@@ -1,67 +1,59 @@
-.ant-layout-sider-collapsed .anticon {
-  font-size: 20px;
-}
-
-.containAll {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    .github {
-        position: absolute;
-        top: 20px;
-        left: 14px;
+#root{
+    height: 100%;
+    }
+    .ant-layout{
+    height: 100%;
+    .logo{
+        height: 32px;
+        text-align: center;
+        border-radius: 6px;
+        margin: 16px;
+        .github {
         font-size: 36px;
-        animation: App-logo-spin infinite 20s linear;
-    }
-    .author {
-        position: absolute;
-        top: 20px;
-        left: 65px;
-        font-size: 24px;
-        font-weight: 600;
-        font-family: "Microsoft YaHei","SimHei"
-    }
-    .white {
+        margin: 0 auto;
+        }
+        .white {
         color: white
+        }
     }
-    .menu {
-        height: 100%;
-        padding-top: 75px;
+    .ant-layout-sider-collapsed{
+        .anticon{
+        font-size: 16px;
+        margin-left: 8px;
+        }
+        .nav-text{
+        display: none;
+        }
+        .ant-menu-submenu-vertical > .ant-menu-submenu-title:after{
+        display: none;
+        }
+        .ant-menu-dark:not(.ant-menu-inline) .ant-menu-submenu-open {
+        color: inherit;
+        }
     }
-    .switch {
-        position: absolute;
-        bottom: 4%;
-        right: 5%;
+    p {
+        margin: 10px 0 10px 0;
     }
-}
+    }
+    .gutter-example{
+    .ant-row{
+        //margin-left: 0 !important;
+        //margin-right: 0 !important;
+        >div{
+        background: transparent;
+        border: 0;
+        }
+    }
+    }
+    .gutter-box {
+    padding: 5px 0;
+    }
 
-.ant-layout-sider-trigger {
-    display: none;
-}
-
-.ant-layout-header {
-    margin-left: 16px;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.ant-layout-sider-collapsed .nav-text {
-  display: none;
-}
-
-.ant-menu-submenu-vertical > .ant-menu-submenu-title:after { // 对缩放时的menu样式进行处理
-    display: none;
-}
-
-.ant-menu-submenu-vertical .ant-menu-submenu-title span span {
-    display: none;
-}
-
-.ant-layout-sider-collapsed .author {
-    display: none;
+    :global {
+    .ant-card-head-title {
+        font-size: 14px !important;
+    }
+    }
+.ant-menu-item-selected {
+  background-color: rgba(169, 169, 169, 0.521) !important;
 }
