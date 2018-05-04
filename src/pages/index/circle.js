@@ -74,10 +74,10 @@ class Circle extends React.Component {
   render () {
     return (
       <ReactEcharts
-      option={this.option(this.props.option)}
-      style={{height: '150px', width: '100%', textAlign: 'center'}}
-      className={'react_for_echarts'}
-    />
+        option={this.option(this.props.option)}
+        style={{height: '150px', width: '100%', textAlign: 'center'}}
+        className={'react_for_echarts'}
+      />
     )
   }
 }
