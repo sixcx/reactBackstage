@@ -49,7 +49,7 @@ class Headers extends React.Component {
   render () {
     const {path, isMobile} = this.props;
     return (
-      <Header style={{background: '#fff', height: 65}} className="custom-theme">
+      <Header style={{background: '#fff', height: 65, padding: 0}} className="custom-theme">
         {
           isMobile ? (
             <Popover content={<SiderCustom path={path} popoverHide={this.popoverHide} />} trigger="click" placement="bottomLeft" visible={this.state.visible} onVisibleChange={this.handleVisibleChange}>
@@ -65,7 +65,7 @@ class Headers extends React.Component {
         }
         <Menu
           mode="horizontal"
-          style={{ lineHeight: '64px', float: 'right' }}
+          style={{ lineHeight: '64px', float: 'right'}}
           onClick={this.menuClick}
           >
             <Menu.Item key="full" onClick={this.screenFull} >
