@@ -1,10 +1,13 @@
 //首页
 import React from 'react'
-import { Row, Col, Card } from 'antd'
+import { Row, Col, Card, Timeline } from 'antd'
 import './index.less'
 import Circle from './circle'
 import Line from './line'
 import Bar from './bar'
+import Pual from '../../images/pual.jpg'
+import Wade from '../../images/wade.jpg'
+import Anthony from '../../images/anthony.jpg'
 
 class Index extends React.Component {
   constructor(props) {
@@ -109,6 +112,55 @@ class Index extends React.Component {
                     offs: this.state.offs
                   }} 
                 />
+              </Card>
+            </div>
+          </Col>
+        </Row>
+        {/* 消息任务 */}
+        <Row gutter={24} className="static">
+          <Col span={12} className="gutter-line">
+            <div className='col-box'>
+              <Card title="我的任务" bordered={false}>
+                <Timeline pending={<a>睡觉</a>}>
+                  <Timeline.Item color="green">先跑个20KM 9:00 AM</Timeline.Item>
+                  <Timeline.Item color="green">柔韧性训练 10:30 AM</Timeline.Item>
+                  <Timeline.Item color="red">
+                    <p>投进1000个中投 2:00 PM</p>
+                    <p>投进100个三分 3:00 PM</p>
+                    <p>进100个罚球 4:00 PM</p>
+                  </Timeline.Item>
+                  <Timeline.Item>
+                    <p>力量训练 5:00 PM</p>
+                    <p>休息，补充体力 7:00 PM</p>
+                  </Timeline.Item>
+                </Timeline>
+              </Card>
+            </div>
+          </Col>
+          <Col span={12} className="gutter-line">
+            <div className='col-box'>
+              <Card title="我的消息" bordered={false}>
+                <div>
+                  <img className='info-img' src={Wade} />
+                  <div className="clear">
+                    <a className="block">D-wade</a>
+                    <p className="text-muted">今晚有空吗？附近新开了一家店，去试试。。</p>
+                  </div>
+                </div>
+                <div className='info-block'>
+                  <img className='info-img' src={Pual} />
+                  <div className="clear">
+                    <a className="block">C-pual</a>
+                    <p className="text-muted">周末一起训练啊，我买了最新的器材</p>
+                  </div>
+                </div>
+                <div className='info-block'>
+                  <img className='info-img' src={Anthony} />
+                  <div className="clear">
+                    <a className="block">K-anthony</a>
+                    <p className="text-muted">老弟，有空切磋切磋，我要把你按在地上摩擦！！！</p>
+                  </div>
+                </div>
               </Card>
             </div>
           </Col>
