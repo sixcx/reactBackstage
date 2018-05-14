@@ -6,6 +6,10 @@ import Index from 'pages/index'
 import Button from 'pages/basic/button'
 import Icons from 'pages/basic/icon'
 import Carousels from 'pages/basic/carousel'
+import Tab from 'pages/basic/tab'
+import Tree from 'pages/basic/tree'
+import Modal from 'pages/basic/modal'
+import Tip from 'pages/basic/tip'
 
 import './index.less'
 
@@ -17,6 +21,10 @@ class Content extends React.Component {
         <Route path="/app/basic/button" component={Button} />
         <Route path="/app/basic/icon" component={Icons} />
         <Route path="/app/basic/carousel" component={Carousels} />
+        <Route path="/app/basic/tabs" component={Tab} />
+        <Route path="/app/basic/tree" component={Tree} />
+        <Route path="/app/basic/modal" component={Modal} />
+        <Route path="/app/basic/tipNote" component={Tip} />
       </Layout.Content>
     )
   }
