@@ -14,6 +14,25 @@ export const menus = [
       {name: '树形', url: '/app/basic/tree', icon: ''},
       {name: '模态框', url: '/app/basic/modal', icon: ''},
       {name: '提示', url: '/app/basic/tipNote', icon: ''},
+      {name: '富文本框', url: '/app/basic/richText', icon: ''}
     ]
+  },
+  {
+    name: '表单', url: '/app/form', icon: 'edit'
+  },
+  {
+    name: '表格', url: '/app/table', icon: 'copy'
+  },
+  {
+    name: '图表', url: '/app/charts', icon: 'area-chart'
+  },
+  {
+    name: '工具', url: '/app/utils', icon: 'tool'
+  },
+  {
+    name: '地图', url: '/app/map', icon: 'environment-o'
+  },
+  {
+    name: '画廊', url: '/app/gallery', icon: 'picture'
   }
 ]
