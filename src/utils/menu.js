@@ -18,7 +18,10 @@ export const menus = [
     ]
   },
   {
-    name: '表单', url: '/app/form', icon: 'edit'
+    name: '表单', url: '/app/form', icon: 'edit',
+    sub: [
+      {name: '基础表单', url: '/app/form/basicForm', icon: ''},
+    ]
   },
   {
     name: '表格', url: '/app/table', icon: 'copy'

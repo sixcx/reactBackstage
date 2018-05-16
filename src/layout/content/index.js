@@ -11,6 +11,7 @@ import Tree from 'pages/basic/tree'
 import Modal from 'pages/basic/modal'
 import Tip from 'pages/basic/tip'
 import RichText from 'pages/basic/richText'
+import BasicForm from 'pages/form/basic'
 
 import './index.less'
 
@@ -27,6 +28,7 @@ class Content extends React.Component {
         <Route path="/app/basic/modal" component={Modal} />
         <Route path="/app/basic/tipNote" component={Tip} />
         <Route path="/app/basic/richText" component={RichText} />
+        <Route path="/app/form/basicForm" component={BasicForm} />
       </Layout.Content>
     )
   }

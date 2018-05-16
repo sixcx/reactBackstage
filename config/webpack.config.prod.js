@@ -251,7 +251,7 @@ module.exports = {
                 loader: require.resolve('less-loader'),
                 options: {
                   javascriptEnabled: true,
-                  modifyVars: { "@primary-color": "#1890ff" },
+                  modifyVars: { "@primary-color": "#1890ff", "@font-size-base": "12px"},
                 },
               },
             ],
