@@ -12,6 +12,7 @@ import Modal from 'pages/basic/modal'
 import Tip from 'pages/basic/tip'
 import RichText from 'pages/basic/richText'
 import BasicForm from 'pages/form/basic'
+import OtherForm from 'pages/form/other'
 
 import './index.less'
 
@@ -29,6 +30,7 @@ class Content extends React.Component {
         <Route path="/app/basic/tipNote" component={Tip} />
         <Route path="/app/basic/richText" component={RichText} />
         <Route path="/app/form/basicForm" component={BasicForm} />
+        <Route path="/app/form/otherForm" component={OtherForm} />
       </Layout.Content>
     )
   }
