@@ -13,6 +13,10 @@ import Tip from 'pages/basic/tip'
 import RichText from 'pages/basic/richText'
 import BasicForm from 'pages/form/basic'
 import OtherForm from 'pages/form/other'
+import BasicTable from 'pages/table/basic'
+import SeniorTable from 'pages/table/senior'
+import AsyncTable from 'pages/table/async'
+import Echarts from 'pages/charts/echarts'
 
 import './index.less'
 
@@ -31,6 +35,10 @@ class Content extends React.Component {
         <Route path="/app/basic/richText" component={RichText} />
         <Route path="/app/form/basicForm" component={BasicForm} />
         <Route path="/app/form/otherForm" component={OtherForm} />
+        <Route path="/app/table/basicTable" component={BasicTable} />
+        <Route path="/app/table/seniorTable" component={SeniorTable} />
+        <Route path="/app/table/dataTable" component={AsyncTable} />
+        <Route path="/app/charts/echarts" component={Echarts} />
       </Layout.Content>
     )
   }

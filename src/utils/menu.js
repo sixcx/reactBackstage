@@ -25,10 +25,18 @@ export const menus = [
     ]
   },
   {
-    name: '表格', url: '/app/table', icon: 'copy'
+    name: '表格', url: '/app/table', icon: 'copy',
+    sub: [
+      {name: '基础表格', url: '/app/table/basicTable', icon: ''},
+      {name: '高级表格', url: '/app/table/seniorTable', icon: ''},
+      {name: '远程数据', url: '/app/table/dataTable', icon: ''}
+    ]
   },
   {
-    name: '图表', url: '/app/charts', icon: 'area-chart'
+    name: '图表', url: '/app/charts', icon: 'area-chart',
+    sub: [
+      {name: 'echarts', url: '/app/charts/echarts', icon: ''}
+    ]
   },
   {
     name: '工具', url: '/app/utils', icon: 'tool'
