@@ -492,6 +492,102 @@ const optionScatter = {
   ]
 };
 
+//关系图数据
+const optionForce = {
+  title: {
+      text: ''
+  },
+  tooltip: {},
+  animationDurationUpdate: 1500,
+  animationEasingUpdate: 'quinticInOut',
+  series : [
+    {
+      type: 'graph',
+      layout: 'none',
+      symbolSize: 50,
+      roam: true,
+      label: {
+        normal: {
+          show: true
+        }
+      },
+      edgeSymbol: ['circle', 'arrow'],
+      edgeSymbolSize: [4, 10],
+      edgeLabel: {
+        normal: {
+          textStyle: {
+            fontSize: 20
+          }
+        }
+      },
+      data: [{
+        name: '节点1',
+        x: 300,
+        y: 300
+      }, {
+        name: '节点2',
+        x: 800,
+        y: 300
+      }, {
+        name: '节点3',
+        x: 550,
+        y: 100
+      }, {
+        name: '节点4',
+        x: 550,
+        y: 500
+      }],
+      // links: [],
+      links: [{
+        source: 0,
+        target: 1,
+        symbolSize: [5, 20],
+        label: {
+          normal: {
+            show: true
+          }
+        },
+        lineStyle: {
+          normal: {
+            width: 5,
+            curveness: 0.2
+          }
+        }
+      }, {
+        source: '节点2',
+        target: '节点1',
+        label: {
+          normal: {
+            show: true
+          }
+        },
+        lineStyle: {
+          normal: { curveness: 0.2 }
+        }
+      }, {
+        source: '节点1',
+        target: '节点3'
+      }, {
+        source: '节点2',
+        target: '节点3'
+      }, {
+        source: '节点2',
+        target: '节点4'
+      }, {
+        source: '节点1',
+        target: '节点4'
+      }],
+      lineStyle: {
+        normal: {
+          opacity: 0.9,
+          width: 2,
+          curveness: 0
+        }
+      }
+    }
+  ]
+};
+
 class Echarts extends React.Component {
   constructor(props) {
     super(props);
@@ -544,6 +640,19 @@ class Echarts extends React.Component {
               <Card title="男性女性身高体重分布" bordered={false}>
                 <ReactEcharts
                   option={optionScatter}
+                  style={{height: '350px', width: '100%', textAlign: 'center'}}
+                  className={'react_for_echarts'}
+                />
+              </Card>
+            </div>
+          </Col>
+        </Row>
+        <Row gutter={24} style={{marginTop: 15}}>
+          <Col span={12}>
+            <div>
+              <Card title="关系图" bordered={false}>
+                <ReactEcharts
+                  option={optionForce}
                   style={{height: '350px', width: '100%', textAlign: 'center'}}
                   className={'react_for_echarts'}
                 />
