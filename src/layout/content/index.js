@@ -17,6 +17,7 @@ import BasicTable from 'pages/table/basic'
 import SeniorTable from 'pages/table/senior'
 import AsyncTable from 'pages/table/async'
 import Echarts from 'pages/charts/echarts'
+import TodoList from 'pages/utils/todoList'
 
 import './index.less'
 
@@ -39,6 +40,7 @@ class Content extends React.Component {
         <Route path="/app/table/seniorTable" component={SeniorTable} />
         <Route path="/app/table/dataTable" component={AsyncTable} />
         <Route path="/app/charts/echarts" component={Echarts} />
+        <Route path="/app/utils/todoList" component={TodoList} />
       </Layout.Content>
     )
   }

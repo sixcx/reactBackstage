@@ -39,7 +39,10 @@ export const menus = [
     ]
   },
   {
-    name: '工具', url: '/app/utils', icon: 'tool'
+    name: '工具', url: '/app/utils', icon: 'tool',
+    sub: [
+      {name: '待办事项', url: '/app/utils/todoList', icon: ''}
+    ]
   },
   {
     name: '地图', url: '/app/map', icon: 'environment-o'
