@@ -41,7 +41,8 @@ export const menus = [
   {
     name: '工具', url: '/app/utils', icon: 'tool',
     sub: [
-      {name: '待办事项', url: '/app/utils/todoList', icon: ''}
+      {name: '待办事项', url: '/app/utils/todoList', icon: ''},
+      {name: '房贷计算器', url: '/app/utils/mortgage', icon: ''}
     ]
   },
   {

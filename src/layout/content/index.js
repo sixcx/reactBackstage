@@ -18,6 +18,7 @@ import SeniorTable from 'pages/table/senior'
 import AsyncTable from 'pages/table/async'
 import Echarts from 'pages/charts/echarts'
 import TodoList from 'pages/utils/todoList'
+import MortgageCal from 'pages/utils/mortgage'
 
 import './index.less'
 
@@ -41,6 +42,7 @@ class Content extends React.Component {
         <Route path="/app/table/dataTable" component={AsyncTable} />
         <Route path="/app/charts/echarts" component={Echarts} />
         <Route path="/app/utils/todoList" component={TodoList} />
+        <Route path="/app/utils/mortgage" component={MortgageCal} />
       </Layout.Content>
     )
   }
