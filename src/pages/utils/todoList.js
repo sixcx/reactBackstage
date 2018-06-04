@@ -10,6 +10,23 @@ class TodoList extends React.Component {
     this.state = {}
   }
 
+  /**
+   * 添加任务
+   */
+  addTask() {
+    //todo
+  }
+  
+  /**
+   *删除任务
+  *
+  * @returns
+  * @memberof TodoList
+  */
+  deleteTask() {
+    //todo
+  }
+
   render () {
     const active = false;
     return (
@@ -27,12 +44,12 @@ class TodoList extends React.Component {
               <Checkbox className='check-box'>
                 test
               </Checkbox>
-              <button className='todo-list-del'>删除</button>
+              <button onClick={this.deleteTask.bind(this)} className='todo-list-del'>删除</button>
             </li>
           </ul>
           <form className='todo-add'>
             <input className='todo-input' />
-            <button type='submit' className='todo-btn'>添加任务</button>
+            <button onClick={this.addTask.bind(this)} className='todo-btn'>添加任务</button>
           </form>
         </div>
       </div>
