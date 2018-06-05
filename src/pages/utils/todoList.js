@@ -1,6 +1,7 @@
 //待办事项页面
 import React from 'react'
 import { Checkbox } from 'antd'
+import { connect } from 'react-redux'
 
 import './todoList.less'
 
