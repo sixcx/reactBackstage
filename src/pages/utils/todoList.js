@@ -58,4 +58,20 @@ class TodoList extends React.Component {
   }
 }
 
-export default TodoList
+//定义输入，容器组件->UI组件(当前组件)
+const mapStateToProps = (state) => {
+
+}
+
+//定义输出，UI组件->容器组件
+const mapDispatchToProps = (dispatch) => {
+
+}
+
+//连接UI组件和容器组件
+const comTodoList = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TodoList)
+
+export default comTodoList
