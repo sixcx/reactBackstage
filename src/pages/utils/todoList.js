@@ -69,9 +69,9 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 //连接UI组件和容器组件
-const comTodoList = connect(
+const ComTodoList = connect(
   mapStateToProps,
   mapDispatchToProps
 )(TodoList)
 
-export default comTodoList
+export default ComTodoList
