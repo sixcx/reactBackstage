@@ -28,25 +28,45 @@ class TodoList extends React.Component {
     //todo
   }
 
+  /**
+   *过滤器
+   *
+   * @returns
+   * @memberof TodoList
+   */
+  handleFilter () {
+
+  }
+
   render () {
-    const active = false;
+    const { todos, visibilityFilter } = this.props;
+    let newTodos = todos;
+    if (visibilityFilter.filter === 'SHOW_COMPLETED') {
+      newTodos = todos.filter(l => l.completed)
+    } else if (visibilityFilter.filter === 'SHOW_ACTIVE') {
+      newTodos = todos.filter(l => !l.completed)
+    }
     return (
       <div className='todo-box'>
         <div className='todo-innerBox'>
           <div className='todo-tab'>
             <div className="todo-tab-item">
-              <a style={{ color: active? '#f01414' : '#4d555d' }}>全部任务</a>
-              <a style={{ color: active? '#f01414' : '#4d555d' }}>待办任务</a>
-              <a style={{ color: active? '#f01414' : '#4d555d' }}>已完成任务</a>
+              <a onClick={this.handleFilter.bind(this, 'SHOW_ALL')} style={{ color: visibilityFilter == 'SHOW_ALL' ? '#f01414' : '#4d555d' }}>全部任务</a>
+              <a onClick={this.handleFilter.bind(this, 'SHOW_ACTIVE')} style={{ color: visibilityFilter == 'SHOW_ACTIVE'? '#f01414' : '#4d555d' }}>待办任务</a>
+              <a onClick={this.handleFilter.bind(this, 'SHOW_COMPLETED')} style={{ color: visibilityFilter == 'SHOW_COMPLETED'? '#f01414' : '#4d555d' }}>已完成任务</a>
             </div>
           </div>
           <ul className='list-group'>
-            <li className='todo-list-li'>
-              <Checkbox className='check-box'>
-                test
-              </Checkbox>
-              <button onClick={this.deleteTask.bind(this)} className='todo-list-del'>删除</button>
-            </li>
+            {
+              newTodos.map((data) => {
+                <li className='todo-list-li' key={data.id}>
+                  <Checkbox className='check-box' checked={data.completed} style={{ textDecoration: data.completed ? "line-through" : "none" }}>
+                    {data.text}
+                  </Checkbox>
+                  <button onClick={this.deleteTask.bind(this)} className='todo-list-del'>删除</button>
+                </li>
+              })
+            }
           </ul>
           <form className='todo-add'>
             <input className='todo-input' />
