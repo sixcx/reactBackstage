@@ -3,11 +3,11 @@
  */
 import { combineReducers } from 'redux'
 import todos from './todoList'
-import visibility from './visibility'
+import visibilityFilter from './visibility'
 
 const reducers = combineReducers({
   todos,
-  visibility
+  visibilityFilter
 })
 
 export default reducers

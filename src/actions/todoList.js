@@ -11,6 +11,13 @@ export const addTodo = (text) => {
   }
 }
 
+export const delTodo = (id) => {
+  return {
+    type: 'DEL_TODO',
+    id
+  }
+}
+
 export const setVisibilityFilter = (filter) => {
   return {
     type: 'SET_VISIBILITY_FILTER',

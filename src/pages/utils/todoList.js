@@ -2,8 +2,12 @@
 import React from 'react'
 import { Checkbox } from 'antd'
 import { connect } from 'react-redux'
+import * as todoAction from '../../actions/todoList'
 
 import './todoList.less'
+import { bindActionCreators } from 'redux';
+
+let nextId = 0;
 
 class TodoList extends React.Component {
   constructor(props) {
@@ -11,11 +15,22 @@ class TodoList extends React.Component {
     this.state = {}
   }
 
+  componentDidMount () {
+    // console.log(this.props.todos, this.props.visibilityFilter)
+  }
   /**
    * 添加任务
    */
   addTask() {
     //todo
+    if(!this.input.value.trim()){
+      return
+    };
+    todoAction.addTodo({
+      id: nextId++,
+      text: this.input.value
+    });
+    this.input.value = '';
   }
   
   /**
@@ -24,8 +39,11 @@ class TodoList extends React.Component {
   * @returns
   * @memberof TodoList
   */
-  deleteTask() {
+  deleteTask(id) {
     //todo
+    todoAction.delTodo({
+      id: id
+    })
   }
 
   /**
@@ -34,8 +52,17 @@ class TodoList extends React.Component {
    * @returns
    * @memberof TodoList
    */
-  handleFilter () {
+  handleFilter (type) {
+    todoAction.setVisibilityFilter({
+      filter: type
+    })
+  }
 
+  //check
+  handleCheck (id) {
+    todoAction.toggleTodo({
+      id: id
+    })
   }
 
   render () {
@@ -51,25 +78,27 @@ class TodoList extends React.Component {
         <div className='todo-innerBox'>
           <div className='todo-tab'>
             <div className="todo-tab-item">
-              <a onClick={this.handleFilter.bind(this, 'SHOW_ALL')} style={{ color: visibilityFilter == 'SHOW_ALL' ? '#f01414' : '#4d555d' }}>全部任务</a>
-              <a onClick={this.handleFilter.bind(this, 'SHOW_ACTIVE')} style={{ color: visibilityFilter == 'SHOW_ACTIVE'? '#f01414' : '#4d555d' }}>待办任务</a>
-              <a onClick={this.handleFilter.bind(this, 'SHOW_COMPLETED')} style={{ color: visibilityFilter == 'SHOW_COMPLETED'? '#f01414' : '#4d555d' }}>已完成任务</a>
+              <a onClick={this.handleFilter.bind(this, 'SHOW_ALL')} style={{ color: visibilityFilter.filter == 'SHOW_ALL' ? '#f01414' : '#4d555d' }}>全部任务</a>
+              <a onClick={this.handleFilter.bind(this, 'SHOW_ACTIVE')} style={{ color: visibilityFilter.filter == 'SHOW_ACTIVE'? '#f01414' : '#4d555d' }}>待办任务</a>
+              <a onClick={this.handleFilter.bind(this, 'SHOW_COMPLETED')} style={{ color: visibilityFilter.filter == 'SHOW_COMPLETED'? '#f01414' : '#4d555d' }}>已完成任务</a>
             </div>
           </div>
           <ul className='list-group'>
             {
               newTodos.map((data) => {
-                <li className='todo-list-li' key={data.id}>
-                  <Checkbox className='check-box' checked={data.completed} style={{ textDecoration: data.completed ? "line-through" : "none" }}>
-                    {data.text}
-                  </Checkbox>
-                  <button onClick={this.deleteTask.bind(this)} className='todo-list-del'>删除</button>
-                </li>
+                return (
+                  <li className='todo-list-li' key={data.id}>
+                    <Checkbox onClick={this.handleCheck.bind(this, data.id)} className='check-box' checked={data.completed} style={{ textDecoration: data.completed ? "line-through" : "none" }}>
+                      {data.text}
+                    </Checkbox>
+                    <button onClick={this.deleteTask.bind(this, data.id)} className='todo-list-del'>删除</button>
+                  </li>
+                )
               })
             }
           </ul>
           <form className='todo-add'>
-            <input className='todo-input' />
+            <input className='todo-input' ref={r =>this.input = r} />
             <button onClick={this.addTask.bind(this)} className='todo-btn'>添加任务</button>
           </form>
         </div>
@@ -79,19 +108,19 @@ class TodoList extends React.Component {
 }
 
 //定义输入，容器组件->UI组件(当前组件)
-const mapStateToProps = (state) => {
-
-}
+const mapStateToProps = (state) => ({
+  todos: state.todos,
+  visibilityFilter: state.visibilityFilter
+})
 
 //定义输出，UI组件->容器组件
-const mapDispatchToProps = (dispatch) => {
-
-}
+const mapDispatchToProps = (dispatch) => ({
+  todoAction: bindActionCreators(todoAction, dispatch),
+  dispatch: dispatch
+})
 
 //连接UI组件和容器组件
-const ComTodoList = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(TodoList)
-
-export default ComTodoList

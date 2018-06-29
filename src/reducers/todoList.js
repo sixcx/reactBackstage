@@ -1,7 +1,21 @@
 /**
  * 定义reducer
  */
-const todos = (state = [], action) => {
+const todoListInit = [{
+  id: -3,
+  text: 'coding',
+  completed: false,
+}, {
+  id: -2,
+  text: '打篮球',
+  completed: false,
+}, {
+  id: -1,
+  text: 'reading',
+  completed: true,
+}];
+
+const todos = (state = todoListInit, action) => {
   switch (action.type) {
     case 'ADD_TODO':
       return [
@@ -17,6 +31,8 @@ const todos = (state = [], action) => {
         (todo.id === action.id) ?
           {...todo, completed: !todo.completed} : todo
       })
+    case 'DEL_TODO':
+      return state.filter(t => t.id !== action.id)
     default:
       return state
   }
