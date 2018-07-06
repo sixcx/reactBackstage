@@ -3,7 +3,7 @@
  */
 const todoListInit = [{
   id: -3,
-  text: 'coding',
+  text: '写代码',
   completed: false,
 }, {
   id: -2,
@@ -11,7 +11,7 @@ const todoListInit = [{
   completed: false,
 }, {
   id: -1,
-  text: 'reading',
+  text: '读书',
   completed: true,
 }];
 
@@ -27,9 +27,13 @@ const todos = (state = todoListInit, action) => {
         }
       ]
     case 'TOGGLE_TODO':
-      return state.map((todo) => {
-        (todo.id === action.id) ?
-          {...todo, completed: !todo.completed} : todo
+      return state.map(t => {
+        if (t.id !== action.id) {
+          return t
+        }
+        return Object.assign({}, t, {
+          completed: !t.completed
+        })
       })
     case 'DEL_TODO':
       return state.filter(t => t.id !== action.id)

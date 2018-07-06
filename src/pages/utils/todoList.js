@@ -22,14 +22,12 @@ class TodoList extends React.Component {
    * 添加任务
    */
   addTask() {
+    const { todoAction } = this.props;
     //todo
     if(!this.input.value.trim()){
       return
     };
-    todoAction.addTodo({
-      id: nextId++,
-      text: this.input.value
-    });
+    todoAction.addTodo(this.input.value);
     this.input.value = '';
   }
   
@@ -40,10 +38,9 @@ class TodoList extends React.Component {
   * @memberof TodoList
   */
   deleteTask(id) {
+    const { todoAction } = this.props;
     //todo
-    todoAction.delTodo({
-      id: id
-    })
+    todoAction.delTodo(id)
   }
 
   /**
@@ -53,24 +50,22 @@ class TodoList extends React.Component {
    * @memberof TodoList
    */
   handleFilter (type) {
-    todoAction.setVisibilityFilter({
-      filter: type
-    })
+    const { todoAction } = this.props;
+    todoAction.setVisibilityFilter(type)
   }
 
   //check
   handleCheck (id) {
-    todoAction.toggleTodo({
-      id: id
-    })
+    const { todoAction } = this.props;
+    todoAction.toggleTodo(id)
   }
 
   render () {
     const { todos, visibilityFilter } = this.props;
     let newTodos = todos;
-    if (visibilityFilter.filter === 'SHOW_COMPLETED') {
+    if (visibilityFilter === 'SHOW_COMPLETED') {
       newTodos = todos.filter(l => l.completed)
-    } else if (visibilityFilter.filter === 'SHOW_ACTIVE') {
+    } else if (visibilityFilter === 'SHOW_ACTIVE') {
       newTodos = todos.filter(l => !l.completed)
     }
     return (
@@ -78,9 +73,9 @@ class TodoList extends React.Component {
         <div className='todo-innerBox'>
           <div className='todo-tab'>
             <div className="todo-tab-item">
-              <a onClick={this.handleFilter.bind(this, 'SHOW_ALL')} style={{ color: visibilityFilter.filter == 'SHOW_ALL' ? '#f01414' : '#4d555d' }}>全部任务</a>
-              <a onClick={this.handleFilter.bind(this, 'SHOW_ACTIVE')} style={{ color: visibilityFilter.filter == 'SHOW_ACTIVE'? '#f01414' : '#4d555d' }}>待办任务</a>
-              <a onClick={this.handleFilter.bind(this, 'SHOW_COMPLETED')} style={{ color: visibilityFilter.filter == 'SHOW_COMPLETED'? '#f01414' : '#4d555d' }}>已完成任务</a>
+              <a onClick={this.handleFilter.bind(this, 'SHOW_ALL')} style={{ color: visibilityFilter == 'SHOW_ALL' ? '#f01414' : '#4d555d' }}>全部任务</a>
+              <a onClick={this.handleFilter.bind(this, 'SHOW_ACTIVE')} style={{ color: visibilityFilter == 'SHOW_ACTIVE'? '#f01414' : '#4d555d' }}>待办任务</a>
+              <a onClick={this.handleFilter.bind(this, 'SHOW_COMPLETED')} style={{ color: visibilityFilter == 'SHOW_COMPLETED'? '#f01414' : '#4d555d' }}>已完成任务</a>
             </div>
           </div>
           <ul className='list-group'>
