@@ -1,5 +1,6 @@
 //房贷计算器
 import React from 'react'
+import './mortgage.less'
 
 class MortgageCal extends React.Component {
   constructor(props) {
@@ -9,8 +10,12 @@ class MortgageCal extends React.Component {
 
   render () {
     return (
-      <div>
-        mortgage
+      <div className='box'>
+        <div className='head'>
+          <a>商业贷款</a>
+          <a>公积金贷款</a>
+          <a>混合贷款</a>
+        </div>
       </div>
     )
   }
