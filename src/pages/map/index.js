@@ -9,10 +9,21 @@ class Map extends React.Component {
     }
   }
 
+  componentDidMount () {
+    let map = new window.AMap.Map('container', {
+      resizeEnable: true,
+      zoom:11,
+      center: [104.07, 30.67] //成都
+    });
+  }
+
   render () {
+    let width = document.body.clientWidth;
     return (
       <div>
-        map
+        <div id='container' style={{width: width, height: '400px'}}>
+
+        </div>
       </div>
     )
   }
