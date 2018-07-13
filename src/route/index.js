@@ -10,10 +10,22 @@ import Login from 'pages/login'
 const history = createHistory();
 const location = history.location;
 
+const fakeAuth = {
+  isAuthenticated: false,
+  authenticate(cb) {
+    this.isAuthenticated = true
+    setTimeout(cb, 100) // fake async
+  },
+  signout(cb) {
+    this.isAuthenticated = false
+    setTimeout(cb, 100)
+  }
+}
+
 const routes = (
   <HashRouter>
     <Switch>
-      <Route exact path="/" render={() => <Redirect to="/app/index" push />} />        
+      <Route exact path="/" render={() => <Redirect to="/login" push />} />        
       <Route path="/app" component={Layout} />
       <Route path="/login" component={Login} />
     </Switch>

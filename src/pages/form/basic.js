@@ -244,7 +244,7 @@ class BasicForm extends React.Component {
                   Log in
                 </Button>
               </FormItem>
-              <Button style={{marginTop: 30}} type="primary" onClick={this.showModal}>New Collection</Button>
+              <Button style={{marginTop: 5}} type="primary" onClick={this.showModal}>New Collection</Button>
             </Form>
             <Modal
               visible={this.state.visible}

@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom'
 import * as screenfull from 'screenfull'
 import avater from '../../images/james.jpg'
 import SiderCustom from '../menu/sider'
+import createHistory from 'history/createHashHistory'
 import './index.less'
 
+const history = createHistory();
 const SubMenu = Menu.SubMenu;
 const { Header } = Layout;
 const ItemGroup = Menu.ItemGroup;
@@ -26,7 +28,7 @@ class Headers extends React.Component {
 
   //退出登录
   logout = () => {
-      this.props.history.push('/login');
+    history.push('/login');
   };
 
   //全屏

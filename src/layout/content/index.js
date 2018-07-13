@@ -20,6 +20,7 @@ import Echarts from 'pages/charts/echarts'
 import TodoList from 'pages/utils/todoList'
 import MortgageCal from 'pages/utils/mortgage'
 import Map from 'pages/map/index'
+import Gallery from 'pages/gallery/index'
 
 import './index.less'
 
@@ -45,6 +46,7 @@ class Content extends React.Component {
         <Route path="/app/utils/todoList" component={TodoList} />
         <Route path="/app/utils/mortgage" component={MortgageCal} />
         <Route path="/app/map" component={Map} />
+        <Route path="/app/gallery" component={Gallery} />
       </Layout.Content>
     )
   }
