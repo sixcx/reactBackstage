@@ -1,6 +1,11 @@
 import React from 'react'
 import { Form, Input, Checkbox, Button, message, Icon } from 'antd'
 import createHistory from 'history/createHashHistory'
+import * as authAction from '../../actions/auth'
+import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+
 import './index.less'
 
 const FormItem = Form.Item;
@@ -10,11 +15,12 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      redirectToReferrer: false
     }
   }
 
   handleSubmit = (e) => {
+    const { authAction } = this.props;
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
@@ -26,6 +32,8 @@ class Login extends React.Component {
     if (name === 'admin' && pass === '123456') {
       // 表单的路由处理
       history.push('/app/index');
+      authAction.authenticate(true);
+      this.setState({ redirectToReferrer: true });
     } else {
       message.info('用户名或密码错误');
     }
@@ -33,6 +41,7 @@ class Login extends React.Component {
 
   render () {
     const { getFieldDecorator } = this.props.form;
+  
     return (
       <div className='login'>
         <div className='loginForm'>
@@ -79,5 +88,18 @@ class Login extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => ({
+  auth: state.auth
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  authAction: bindActionCreators(authAction, dispatch),
+  dispatch: dispatch
+})
+
 let Loging = Form.create()(Login)
-export default Loging
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Loging)

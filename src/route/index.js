@@ -6,21 +6,14 @@ import { IndexRoute,Route, Redirect } from 'react-router'
 import createHistory from 'history/createBrowserHistory'
 import Layout from 'layout'
 import Login from 'pages/login'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as authAction from '../actions/auth'
 
 const history = createHistory();
 const location = history.location;
 
-const fakeAuth = {
-  isAuthenticated: false,
-  authenticate(cb) {
-    this.isAuthenticated = true
-    setTimeout(cb, 100) // fake async
-  },
-  signout(cb) {
-    this.isAuthenticated = false
-    setTimeout(cb, 100)
-  }
-}
+// const { auth } = this.props;
 
 const routes = (
   <HashRouter>
@@ -31,5 +24,25 @@ const routes = (
     </Switch>
   </HashRouter>
 )
+
+// function routes(props, /* context */) {
+//   return 
+//     <HashRouter>
+//       <Switch>
+//         <Route exact path="/" render={() => props.auth.isAuthenticated ? <Redirect to="/app/index" push /> : <Redirect to="/login" push />} />        
+//         <Route path="/app" component={Layout} />
+//         <Route path="/login" component={Login} />
+//       </Switch>
+//     </HashRouter>
+// }
+
+const mapStateToProps = (state) => ({
+  auth: state.auth
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  authAction: bindActionCreators(authAction, dispatch),
+  dispatch: dispatch
+})
 
 export default routes
