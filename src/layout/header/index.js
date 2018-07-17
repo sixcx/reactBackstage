@@ -78,7 +78,8 @@ class Headers extends React.Component {
                 <Icon type="notification" />
               </Badge>
             </Menu.Item>
-            <SubMenu title={<span className="avatar"><img src={avater} alt="头像" /><i className="on bottom b-white" /></span>}>
+            {/* <i className="on bottom b-white" /> */}
+            <SubMenu title={<span className="avatar"><img src={avater} alt="头像" /></span>}>
               <ItemGroup title="用户中心">
                 <Menu.Item key="userName">{this.state.userName}</Menu.Item>
                 <Menu.Item key="info">个人信息</Menu.Item>

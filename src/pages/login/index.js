@@ -33,7 +33,7 @@ class Login extends React.Component {
       // 表单的路由处理
       history.push('/app/index');
       authAction.authenticate(true);
-      this.setState({ redirectToReferrer: true });
+      setTimeout(() => {this.setState({ redirectToReferrer: true })}, 100);
     } else {
       message.info('用户名或密码错误');
     }
@@ -41,7 +41,14 @@ class Login extends React.Component {
 
   render () {
     const { getFieldDecorator } = this.props.form;
-  
+    const { from } = this.props.location.state || { from: { pathname: '/' } }
+    const { redirectToReferrer } = this.state
+    
+    if (redirectToReferrer) {
+      return (
+        <Redirect to={from}/>
+      )
+    }
     return (
       <div className='login'>
         <div className='loginForm'>

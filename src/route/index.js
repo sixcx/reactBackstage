@@ -18,7 +18,7 @@ const location = history.location;
 const routes = (
   <HashRouter>
     <Switch>
-      <Route exact path="/" render={() => <Redirect to="/login" push />} />        
+      <Route exact path="/" render={() => false ? <Redirect to="/app/index" push /> : <Redirect to="/login" push /> } />        
       <Route path="/app" component={Layout} />
       <Route path="/login" component={Login} />
     </Switch>
